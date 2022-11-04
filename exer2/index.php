@@ -24,11 +24,11 @@
 
                <div class="res">
                     <button class="btn btn-outline-secondary" name="rep" type="submit">IMPRIMIR</button>
-
                 </div>
 
                 <div class="res">
                 <?php
+                if(isset($_GET['rep'])){
                 $n=$_GET['numb'];
 
                 for($cont = 1; $cont <= $n; $cont++){
@@ -39,6 +39,7 @@
                         echo "<h1 style='color:red; font-size: 14pt; text-align:center'>".$cont."</h1>"; 
                     }
                 }
+            }
                 ?>
                 </div>
                 </form>  

@@ -41,6 +41,7 @@
 
                 <div class="res">
                 <?php
+                if(isset($_GET['rep'])){
                 $a=$_GET['n1'];
                 $b=$_GET['n2'];
                 $c=$_GET['n3'];
@@ -49,7 +50,7 @@
 
 
                 echo "<h1 style='color:indigo; font-size: 14pt; text-align:center'>A média final é ".$m."</h1>";
-
+                }
                 ?>
                 </div>
                 </form>  
