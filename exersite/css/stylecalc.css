@@ -1,0 +1,12 @@
+.box{
+    width: 500px;
+}
+.but{
+    width: 150px;
+    margin: 10px auto;
+}
+.res{
+    width: 200px;
+    margin: 10px auto;
+    text-align: center;
+}
