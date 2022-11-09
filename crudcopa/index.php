@@ -25,16 +25,16 @@
                        </h4>
                    </div>
 <!-- modal cadastro -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro de Times</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="code.php" method="POST">
-        <div class="mb-3">
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro de Times</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="code.php" method="POST">
+                            <div class="mb-3">
                                <label>Time</label>
                                <input type="text" name="time" class="form-control">
                            </div>
@@ -57,15 +57,15 @@
                                <label>Cor do Uniforme</label>
                                <input type="text" name="coruniforme" class="form-control">
                            </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-        <button type="submit" name="save_team" class="btn btn-primary">Salvar Time</button>
-      </div>
-    </div>
-  </div>
-</div>
-</form>
+                        </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                <button type="submit" name="save_team" class="btn btn-primary">Salvar Time</button>
+                            </div>
+                            </div>
+                    </div>
+                    </div>
+                    </form>
 <!-- fim do modal cadastro -->
 
 
