@@ -25,7 +25,7 @@ session_start();
                    </div>
                    <div class="card-body">
                        <form action="code.php" method="POST">
-                        <div class="mb-3">
+                       <div class="mb-3">
                                <label>Time</label>
                                <input type="text" name="time" class="form-control">
                            </div>

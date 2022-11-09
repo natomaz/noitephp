@@ -58,14 +58,14 @@
                                <input type="text" name="coruniforme" class="form-control">
                            </div>
                         </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                <button type="submit" name="save_team" class="btn btn-primary">Salvar Time</button>
-                            </div>
-                            </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" name="save_team" class="btn btn-primary">Salvar Time</button>
                     </div>
                     </div>
-                    </form>
+                </div>
+                </div>
+                </form>
 <!-- fim do modal cadastro -->
 
 
