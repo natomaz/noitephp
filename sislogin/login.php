@@ -1,3 +1,12 @@
+<html>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</html>
 <?php
  
 // inclui o arquivo de inicialização
@@ -10,10 +19,8 @@ $password = isset($_POST['password']) ? $_POST['password'] : '';
 //verifica se as variáveis email e password não estão vazias
 if (empty($email) || empty($password))
 {
-    echo  '<script>alert("Incorreto!");</script>';
-    echo "javascript:window.location='index.php'</script>";
-    //exit;
-   
+    Echo "<script>alert('Preencha as informações!');</script>";
+    exit;
 }
  
 // cria o hash da senha
@@ -38,8 +45,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 if (count($users) <= 0)
 {
     //echo "Email ou senha incorretos";
-    echo  '<script>alert("Incorreto!");</script>';
-    header('Location: index.php');
+    echo  'Incorreto';
     exit;
 }
  
@@ -54,6 +60,3 @@ $_SESSION['user_name'] = $user['name'];
 header('Location: index.php');
 
 ?>
-<html>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-</html>
