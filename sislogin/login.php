@@ -8,9 +8,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </html>
 <?php
- 
 // inclui o arquivo de inicialização
 require 'init.php';
+
  
 // resgata variáveis do formulário
 $email = isset($_POST['email']) ? $_POST['email'] : '';
@@ -19,7 +19,8 @@ $password = isset($_POST['password']) ? $_POST['password'] : '';
 //verifica se as variáveis email e password não estão vazias
 if (empty($email) || empty($password))
 {
-    Echo "<script>alert('Preencha as informações!');</script>";
+    echo '<div class="container box mt-4"><div class="alert alert-warning" role="alert">PREENCHA OS DADOS!</div></div>';
+    header("Refresh: 3; URL=http://localhost/noitephp/sislogin/index.php");
     exit;
 }
  
@@ -45,7 +46,8 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 if (count($users) <= 0)
 {
     //echo "Email ou senha incorretos";
-    echo  'Incorreto';
+    echo '<div class="container box mt-4"><div class="alert alert-danger" role="alert">DADOS INCORRETOS!</div></div>';
+    header("Refresh: 3; URL=http://localhost/noitephp/sislogin/index.php");
     exit;
 }
  

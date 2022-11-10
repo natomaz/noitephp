@@ -27,15 +27,17 @@ require 'init.php';
                         <h4 style='font-family: "Montserrat", sans-serif; color: black; font-size: 35pt; text-align:center'>
                         Sistema de Login
                         </h4>
-                   </div>         
+                   </div>  
                         <?php if (isLoggedIn()): ?>
                             <p style='font-family: "Xanh Mono", monospace; color: black; font-size: 20pt; text-align:center'>Olá, <?php echo $_SESSION['user_name']; ?>. 
-                            <a href="panel.php">Painel</a> | <a href="logout.php">Sair</a>
+                            <div>
+                            <a style='font-family: "Montserrat", sans-serif; font-size: 18pt' class="btn btn-outline-primary" href="panel.php">Painel</a> 
+                            <a style='font-family: "Montserrat", sans-serif; font-size: 18pt' class="btn btn-outline-danger float-end" href="logout.php">Sair</a>
+                            </div>
                             </p>
                         <?php else: ?>
                             <p style='font-family: "Xanh Mono", monospace; color: black; font-size: 20pt; text-align:center'>
                             Olá, visitante. 
-                            <!--<a href="form-login.php">Login</a>!-->
                             </p>
                             <a style='font-family: "Montserrat", sans-serif; font-size: 15pt' class="btn btn-light float-end" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
                                 LOGIN
@@ -55,7 +57,7 @@ require 'init.php';
                             </div>
                             <div class="modal-body">
                                 <form action="login.php" method="post">
-                                    <span id="msgAlertErroLogin"></span>
+                                    
                                     <div class="mb-3">
                                         <input type="text" name="email" id="email" class="form-control" placeholder="Email">
                                     </div>

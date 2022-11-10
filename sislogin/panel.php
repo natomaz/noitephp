@@ -28,8 +28,11 @@ require_once 'init.php';
                         Painel
                         </h4>
                         <p style='font-family: "Xanh Mono", monospace; color: black; font-size: 20pt; text-align:center'>
-                        Bem-vindo ao seu painel, <?php echo $_SESSION['user_name']; ?> <br> <a href="logout.php">Sair</a></p>
+                        Bem-vindo ao seu painel, <?php echo $_SESSION['user_name']; ?> <br></p>
                     <div>
+                    <div>
+                        <a style='font-family: "Montserrat", sans-serif; font-size: 15pt' class="btn btn-light float-end" href="logout.php">Sair</a>
+                    </div>
                 </div>
             </div>
         </div>
