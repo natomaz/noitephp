@@ -24,7 +24,3 @@ body {
     align-items: center;
     text-align: center;
 }
-.centered {
-    margin: 0 auto !important;
-    float: none !important;
-}
