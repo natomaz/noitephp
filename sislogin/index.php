@@ -29,10 +29,10 @@ require 'init.php';
                         </h4>
                    </div>  
                         <?php if (isLoggedIn()): ?>
-                            <p style='font-family: "Xanh Mono", monospace; color: black; font-size: 20pt; text-align:center'>Olá, <?php echo $_SESSION['user_name']; ?>. 
+                            <br><p style='font-family: "Xanh Mono", monospace; color: black; font-size: 20pt; text-align:center'>Bem vindo, <?php echo $_SESSION['user_name']; ?>. 
                             <div>
                             <a style='font-family: "Montserrat", sans-serif; font-size: 18pt' class="btn btn-outline-primary" href="panel.php">Painel</a> 
-                            <a style='font-family: "Montserrat", sans-serif; font-size: 18pt' class="btn btn-outline-danger float-end" href="logout.php">Sair</a>
+                            <a style='font-family: "Montserrat", sans-serif; font-size: 18pt' class="btn btn-outline-danger" href="logout.php">Sair</a>
                             </div>
                             </p>
                         <?php else: ?>
@@ -52,7 +52,7 @@ require 'init.php';
                         <div class="modal-content">
                             <div class="modal-header text-center">
                                 <h1 style='font-family: "Montserrat", sans-serif; font-size: 20pt;' 
-                                class="modal-title fs-5" id="exampleModalLabel">LOGIN</h1>   
+                                class="modal-title fs-5" id="exampleModalLabel"></h1>   
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
