@@ -1,0 +1,30 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    }
+.box {
+    width: 600px;
+    height: 600px;
+    }
+body {
+    margin: 0px;
+    background-image: url("img/1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    }
+.table {
+    width: 800px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.centered {
+    margin: 0 auto !important;
+    float: none !important;
+}
