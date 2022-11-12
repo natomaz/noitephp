@@ -11,12 +11,13 @@ require 'connection.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda</title>
+    <link href="css/style.css" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 
 <body>
-    <link href="css/style.css" rel="stylesheet">
+    
     <!--    <?php echo '
     <script>
     Swal.fire({
@@ -94,7 +95,7 @@ require 'connection.php';
                                     while ($rs = $stmt->fetch(PDO::FETCH_OBJ)) {
                                         echo "<tr>";
                                         echo "<td>" . $rs->nome . "</td><td>" . $rs->email . "</td><td>" . $rs->celular
-                                            . "</td><td><center><a class='btn btn-outline-dark' href=\"?act=upd&id=" . $rs->id . "\">Alterar</a>"
+                                            . "</td><td><center><a name='alterar' class='btn btn-outline-dark' href=\"?act=upd&id=" . $rs->id . "\">Alterar</a>"
                                             . "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
                                             . "<a class='btn btn-outline-dark' href=\"?act=del&id=" . $rs->id . "\">Excluir</a></center></td>";
                                         echo "</tr>";

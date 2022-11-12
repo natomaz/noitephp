@@ -26,9 +26,20 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "save" && $nome != "") {
         if ($id != ""){
         $stmt = $conexao->prepare("UPDATE contatos SET nome=?, email=?, celular=? WHERE id = ?");
         $stmt->bindParam(4, $id);
-        } else{
+        
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Dados atualizados com sucesso!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>';
+        
+        } else {
         $stmt = $conexao->prepare("INSERT INTO contatos (nome, email, celular) VALUES (?, ?, ?)");
-        }
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Dados cadastrados com sucesso!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>';
+    }
+        
         
         $stmt->bindParam(1, $nome);
         $stmt->bindParam(2, $email);
@@ -36,10 +47,7 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "save" && $nome != "") {
          
             if ($stmt->execute()) {
                 if ($stmt->rowCount() > 0) {
-                    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Dados cadastrados com sucesso!</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>';
+                    
                     $id = null;
                     $nome = null;
                     $email = null;
@@ -72,13 +80,17 @@ if (isset($_REQUEST["act"]) && $_REQUEST["act"] == "upd" && $id != "") {
         echo "Erro: ".$erro->getMessage();
     }
 }
+//deleta
 if( isset ($_REQUEST["act"]) && $_REQUEST["act"] == "del" && $id != ""){
     try {
         $stmt = $conexao->prepare ("DELETE FROM contatos WHERE id = ?");
         $stmt->bindParam(1,$id,PDO::PARAM_INT);
         
         if($stmt->execute()){
-            echo "Registro foi excluído com êxito!";
+            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Dados deletados com sucesso!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
             $id = null;
         } else {
             throw new PDOException("Erro: Não foi possível executar a declaração sql");
