@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,11 +15,11 @@
             <h1 style='font-family: "Abril Fatface", cursive; color: indigo; font-size: 50pt; text-align:center'>
                 Exercício 3<br>
             </h1>
-                <form action="index.php" method="get">
+                <form action="exer3.php" method="get">
 
                 <div class="mb-3">
-                    <label for="palavra">Insira uma palavra:</label>
-                    <input type="text" class="form-control" name="palavra">
+                    <label for="palavra">Insira um número:</label>
+                    <input type="number" class="form-control" name="numero">
                 </div>
 
                 <div class="res">
@@ -30,13 +30,16 @@
                 <div class="res">
                 <?php
                 if(isset($_GET['rep'])){
-                $palavra = $_GET['palavra']; 
-                $tamanho = strlen($palavra);
-
-                echo "<h1 style='color:indigo; font-size: 14pt; text-align:center'>
-                Palavra: ".$palavra." <br>
-                Tamanho: ".$tamanho."                
-                </h1>";
+                $numero = $_GET['numero']; 
+                
+                if($numero > 0){
+                    echo  "<h1 style='font-size: 14pt; color: indigo;'>Valor Positivo: ".$numero."</h1>"; 
+                }
+                else if($numero == 0) {
+                    echo  "<h1 style='font-size: 14pt; color: indigo;'>Valor zero: ".$numero."</h1>"; 
+                }else {
+                    echo  "<h1 style='font-size: 14pt; color: indigo;'>Valor negativo: ".$numero."</h1>"; 
+                }
                 }
                 ?>
                 </div>
