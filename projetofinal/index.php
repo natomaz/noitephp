@@ -31,7 +31,7 @@
                         </div>
                         <br>
                         <div class="d-flex justify-content-center text-center">
-                            <form  action='pagina.php' method="post">
+                            <form method="post">
                                 <div class="form-floating mb-3">
                                     <input type="email" name="email" class="form-control center-block" id="floatingInput" placeholder="Email">
                                     <label for="floatingInput">Email</label>
@@ -104,13 +104,11 @@
 //}
 
 
-if (isset($_POST['login'])) {
-     /*$con = mysqli_connect("localhost", "root", "", "projetofinal");
-    
-if (!$con) {
-    die('Connection Failed' . mysqli_connect_error());
-} else echo 'conectou';
 
+
+if (isset($_POST['login'])) {
+
+    require('conectar.php');
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = mysqli_real_escape_string($con, $_POST['password']);
   
@@ -119,10 +117,9 @@ if (!$con) {
     //var_dump($query);
 
     $result = "SELECT * FROM `usuarios` WHERE email = $email and senha = $password";
-    
+    var_dump($result);
 
     $r = mysqli_query($con, $result);
-    print_r($r);
 
    
     $row = mysqli_num_rows($r);
@@ -131,7 +128,7 @@ if (!$con) {
     if ($row >= 1) {
         $_SESSION['email'] = $email;
         echo "teste";
-        header('Location: panel.php');
+        header ("location: panel.php");
         session_start();
         
         exit;
@@ -148,7 +145,7 @@ if (!$con) {
                     icon: 'warning',
                     text: 'Preencha os dados!'})</script>";
         exit(0);
-    }*/
+    }
 } else {
 
 
