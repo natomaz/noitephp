@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+require 'init.php';
+?>
 <!doctype html>
 <html>
 
@@ -16,7 +21,7 @@
 
 <body>
     <header class="header">
-        <a href="http://localhost/noitephp/projetofinal/index.php"><img src="./img/logo.jpg" width=100 height=100></a>
+        <a href="http://localhost/noitephp/projetofinal/index.php"><img src="img/logo.jpg" width=100 height=100></a>
     </header>
 
     <body>
@@ -31,7 +36,7 @@
                         </div>
                         <br>
                         <div class="d-flex justify-content-center text-center">
-                            <form method="post">
+                            <form action="login.php" method="post">
                                 <div class="form-floating mb-3">
                                     <input type="email" name="email" class="form-control center-block" id="floatingInput" placeholder="Email">
                                     <label for="floatingInput">Email</label>
@@ -86,90 +91,34 @@
 
 </html>
 
-<!-- Login e Cadastro -->
+<!--Cadastro -->
 <?php
-//define('DB_HOST', 'localhost');
-//define('DB_USER', 'root');
-//define('DB_PASS', '');
-//define('DB_NAME', 'projetofinal');
+$con = mysqli_connect("localhost", "root", "", "projetofinal");
+if (!$con) {
+    die('Connection Failed' . mysqli_connect_error());
+}
 
-//ini_set('display_errors', true);
-//error_reporting(E_ALL);
-//try {
-//    $conexao = new PDO("mysql:host=localhost; dbname=crudsimples", "root", "");
-//    $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//    $conexao->exec("set names utf8");
-//} catch (PDOException $erro) {
-//    echo "Erro na conexão:" . $erro->getMessage();
-//}
-
-
-
-
-if (isset($_POST['login'])) {
-
-    require('conectar.php');
+if (isset($_POST['cadastrar'])) {
+    $nome = mysqli_real_escape_string($con, $_POST['nome']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
-    $password = mysqli_real_escape_string($con, $_POST['password']);
-  
-
-    //$query = "SELECT id,nome FROM `usuarios` WHERE email = $email and senha = $password";
-    //var_dump($query);
-
-    $result = "SELECT * FROM `usuarios` WHERE email = $email and senha = $password";
-    var_dump($result);
-
-    $r = mysqli_query($con, $result);
-
-   
-    $row = mysqli_num_rows($r);
-    
-
-    if ($row >= 1) {
-        $_SESSION['email'] = $email;
-        echo "teste";
-        header ("location: panel.php");
-        session_start();
-        
-        exit;
-    } else {
-        echo "<script>Swal.fire({
-                    icon: 'warning',
-                    text: 'Dados incorretos!'})</script>";
-        exit;
-    }
-
-
-    if (empty($email) || empty($password)) {
-        echo "<script>Swal.fire({
-                    icon: 'warning',
-                    text: 'Preencha os dados!'})</script>";
-        exit(0);
-    }
-} else {
-
-
-    if (isset($_POST['cadastrar'])) {
-        $nome = mysqli_real_escape_string($con, $_POST['nome']);
-        $email = mysqli_real_escape_string($con, $_POST['email']);
-        $senha = mysqli_real_escape_string($con, $_POST['password']);
-        $data = mysqli_real_escape_string($con, $_POST['data']);
-        $query = "INSERT INTO usuarios (nome,email,senha,datanasc) VALUES 
+    $senha = mysqli_real_escape_string($con, $_POST['password']);
+    $data = mysqli_real_escape_string($con, $_POST['data']);
+    $query = "INSERT INTO usuarios (nome,email,senha,datanasc) VALUES 
    ('$nome','$email','$senha','$data')";
-        $query_run = mysqli_query($con, $query);
-        if ($query_run) {
-            echo "<script>Swal.fire({
+    $query_run = mysqli_query($con, $query);
+    if ($query_run) {
+        echo "<script>Swal.fire({
             icon: 'success',
             timer: 1500,
             text: 'Usuário cadastrado!'})</script>";
-            exit(0);
-        } else {
-            echo "<script>Swal.fire({
+        exit(0);
+    } else {
+        echo "<script>Swal.fire({
             icon: 'error',
             timer: 1500,
             text: 'Usuário não cadastrado!'})</script>";
-            exit(0);
-        }
+        exit(0);
     }
 }
+
 ?>
