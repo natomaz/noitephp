@@ -25,11 +25,11 @@ if (empty($email) || empty($password)) {
 $PDO = db_connect();
 
 //Verifica se o email e a senha existem no banco de dados
-$sql = "SELECT id, nome FROM usuarios WHERE email = :email AND senha = :senha";
+$sql = "SELECT id, nome FROM usuarios WHERE email = :email AND senha = :senha AND ativo = TRUE";
 $stmt = $PDO->prepare($sql);
-var_dump($stmt);
 $stmt->bindParam(':email', $email);
 $stmt->bindParam(':senha', $password);
+
 
 $stmt->execute();
 
@@ -53,7 +53,7 @@ session_start();
 $_SESSION['logged_in'] = true;
 $_SESSION['user_id'] = $user['id'];
 $_SESSION['user_name'] = $user['name'];
-
 header('Location: panel.php');
+
 
 ?>
